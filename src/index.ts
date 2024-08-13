@@ -9,8 +9,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin:
-      "https://portifolio-colaborativo-codewizard-eaglescoders.vercel.app/",
+    origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
