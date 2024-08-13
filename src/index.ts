@@ -14,7 +14,7 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
-app.use("comments", comments);
+app.use("/comments", comments);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Api configurada Para Receber Comentários");
