@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { CommentsModel } from "../models/comments/comments-model";
 
 export const addAnewComment = async (req: Request, res: Response) => {
-  const { name, email, githubuser, comment } = req.body;
+  const { name, email, githubuser, comment, avatar, isOfensive } = req.body;
 
   // Verifica se todos os campos necessários estão presentes
   if (!name || !email || !githubuser || !comment) {
@@ -16,6 +16,8 @@ export const addAnewComment = async (req: Request, res: Response) => {
       email,
       githubuser,
       comment,
+      avatar,
+      isOfensive
     });
 
     // Salva o comentário no banco de dados
