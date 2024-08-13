@@ -31,3 +31,23 @@ export const addAnewComment = async (req: Request, res: Response) => {
     return res.status(500).json({ msg: "Falha ao Enviar Comentário" });
   }
 };
+
+
+
+export const getAllComments = async (req : Request, res : Response) =>{
+  
+  try{
+    const allcomments = await CommentsModel.find();
+    if(allcomments.length === 0){
+      console.log("Nenhum comentário Cadastrado")
+      return res.status(404).send({msg : "Nenhum comentário Encontrado"})
+    }
+
+  return res.status(200).send(allcomments)
+
+  }catch(error){
+    console.log("Falha ao Obter comentários", error)
+    res.status(400).send({msg : "Falha ao obter Comentários"})
+  }
+
+}
